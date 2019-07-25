@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FujitsuDemoApp.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.director)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actors)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.year)
+        </th>
+        <th>Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.actors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year)
+            </td>
+            <td>@Html.ActionLink("Details", "Details", "Movie", new { @id = item.Id }, new { @class = "btn btn-default" })</td>
+            <td>@Html.ActionLink("Edit", "Edit", "Movie", new { @id = item.Id }, new { @class = "btn btn-default" })</td>
+            <td>@Html.ActionLink("Delete", "Delete", "Movie", new { @id = item.Id }, new { @class = "btn btn-default" })</td>
+        </tr>
+    }
+
+</table>
+

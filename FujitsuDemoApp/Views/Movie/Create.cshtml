@@ -1,0 +1,70 @@
+﻿@model FujitsuDemoApp.Models.Movie
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm())
+        {<div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Add Movie</h4>
+                </div>
+                <div class="panel-body">
+                    @if (TempData["Message"] != null)
+                    {
+                        @TempData["Message"]
+                    }
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-sm-6 col-lg-4">
+                            Title
+                            @Html.TextBoxFor(m => m.title, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-sm-6 col-lg-4">
+                            Director
+                            @Html.TextBoxFor(m => m.director, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-sm-6 col-lg-4">
+                            Actors
+                            @Html.TextBoxFor(m => m.actors, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-sm-6 col-lg-4">
+                            Image
+                            @Html.TextBoxFor(m => m.image, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-sm-6 col-lg-4">
+                            Year
+                            @Html.TextBoxFor(m => m.year, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-sm-6 col-lg-4">
+                            <input id="Submit1" class="btn btn-success" type="submit" value="submit" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-sm-6 col-lg-4">
+                            @Html.ActionLink("Back to Home Page", "Index", "Movie", null, new { @class = "btn btn-warning" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
